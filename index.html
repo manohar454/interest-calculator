@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interest Calculator</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    padding: 15px;
+}
+.container {
+    max-width: 650px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+h2, h3 {
+    text-align: center;
+}
+input, select, button {
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0;
+}
+button {
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+button:hover {
+    background: #0056b3;
+}
+.section {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+.result {
+    background: #f1f1f1;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+.print-btn {
+    background: green;
+}
+.calc-grid {
+    display: flex;
+    gap: 10px;
+}
+.calc-grid input {
+    width: 50%;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Interest Calculator & Calculator</h2>
+
+<!-- INTEREST SECTION -->
+<div class="section">
+<h3>Interest Calculator (PN Loan)</h3>
+
+<input type="text" id="userName" placeholder="Your Name">
+<input type="text" id="borrowerName" placeholder="Borrower Name">
+<input type="number" id="principal" placeholder="Principal Amount (₹)">
+<input type="number" id="rate" placeholder="Interest Rate (₹ per 100 per month)">
+<label>Start Date</label>
+<input type="date" id="startDate">
+<label>End Date</label>
+<input type="date" id="endDate">
+
+<button onclick="calculateInterest()">Calculate Interest</button>
+
+<div id="interestResult" class="result"></div>
+<button class="print-btn" onclick="window.print()">Print / Save Statement</button>
+</div>
+
+<!-- CALCULATOR SECTION -->
+<div class="section">
+<h3>Normal Calculator</h3>
+
+<div class="calc-grid">
+    <input type="number" id="num1" placeholder="Number 1">
+    <input type="number" id="num2" placeholder="Number 2">
+</div>
+
+<select id="operation">
+    <option value="add">Addition (+)</option>
+    <option value="sub">Subtraction (-)</option>
+    <option value="mul">Multiplication (×)</option>
+    <option value="div">Division (÷)</option>
+</select>
+
+<button onclick="calculate()">Calculate</button>
+<div id="calcResult" class="result"></div>
+</div>
+
+</div>
+
+<script>
+function calculateInterest() {
+    let user = document.getElementById("userName").value;
+    let borrower = document.getElementById("borrowerName").value;
+    let P = parseFloat(document.getElementById("principal").value);
+    let R = parseFloat(document.getElementById("rate").value);
+    let start = new Date(document.getElementById("startDate").value);
+    let end = new Date(document.getElementById("endDate").value);
+
+    if (!user || !borrower || !P || !R || !start || !end) {
+        alert("Please fill all fields");
+        return;
+    }
+
+    let days = (end - start) / (1000 * 60 * 60 * 24);
+    let months = days / 30;
+
+    let SI = (P * R * months) / 100;
+    let CI = (P * Math.pow(1 + R / 100, months)) - P;
+
+    document.getElementById("interestResult").innerHTML = `
+        <strong>Borrower:</strong> ${borrower}<br>
+        <strong>Calculated By:</strong> ${user}<br>
+        <strong>Days:</strong> ${days}<br>
+        <strong>Months:</strong> ${months.toFixed(2)}<br><br>
+
+        <strong>Simple Interest:</strong> ₹${SI.toFixed(2)}<br>
+        <strong>Total (SI):</strong> ₹${(P + SI).toFixed(2)}<br><br>
+
+        <strong>Compound Interest:</strong> ₹${CI.toFixed(2)}<br>
+        <strong>Total (CI):</strong> ₹${(P + CI).toFixed(2)}
+    `;
+}
+
+function calculate() {
+    let a = parseFloat(document.getElementById("num1").value);
+    let b = parseFloat(document.getElementById("num2").value);
+    let op = document.getElementById("operation").value;
+    let result;
+
+    if (op === "add") result = a + b;
+    if (op === "sub") result = a - b;
+    if (op === "mul") result = a * b;
+    if (op === "div") result = b !== 0 ? a / b : "Error";
+
+    document.getElementById("calcResult").innerHTML =
+        `<strong>Result:</strong> ${result}`;
+}
+</script>
+
+</body>
+</html>
