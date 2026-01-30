@@ -1,59 +1,44 @@
-function calculate() {
-  const borrower = document.getElementById("borrower").value.trim();
+function calculateInterest() {
+  const borrower = document.getElementById("borrower").value;
   const principal = parseFloat(document.getElementById("principal").value);
   const rate = parseFloat(document.getElementById("rate").value);
-  const startDate = new Date(document.getElementById("startDate").value);
-  const endDate = new Date(document.getElementById("endDate").value);
+  const start = new Date(document.getElementById("startDate").value);
+  const end = new Date(document.getElementById("endDate").value);
 
-  if (!borrower || !principal || !rate || !startDate || !endDate) {
-    alert("Please fill all fields correctly");
+  if (!borrower || !principal || !rate || !start || !end) {
+    alert("Please fill all fields");
     return;
   }
 
-  const days = (endDate - startDate) / (1000 * 60 * 60 * 24);
+  const days = Math.floor((end - start) / (1000 * 60 * 60 * 24));
   const months = days / 30;
 
-  const interest = (principal * rate * months) / 100;
-  const total = principal + interest;
+  const SI = (principal * rate * months) / 100;
+  const total = principal + SI;
 
-  const data = {
-    borrower,
-    principal,
-    rate,
-    startDate: startDate.toDateString(),
-    endDate: endDate.toDateString(),
-    months: months.toFixed(2),
-    interest: interest.toFixed(2),
-    total: total.toFixed(2)
-  };
+  document.getElementById("sBorrower").innerText = borrower;
+  document.getElementById("sPrincipal").innerText = "₹ " + principal.toFixed(2);
+  document.getElementById("sRate").innerText = rate + " per 100 per month";
+  document.getElementById("sDays").innerText = days + " days";
+  document.getElementById("sMonths").innerText = months.toFixed(2) + " months";
+  document.getElementById("sSI").innerText = "₹ " + SI.toFixed(2);
+  document.getElementById("sTotal").innerText = "₹ " + total.toFixed(2);
 
-  localStorage.setItem("interestData", JSON.stringify(data));
-  window.location.href = "result.html";
+  const today = new Date();
+  document.getElementById("calcDate").innerText =
+    today.toLocaleDateString("en-GB");
 }
 
-function loadStatement() {
-  const data = JSON.parse(localStorage.getItem("interestData"));
-  if (!data) return;
+function basicCalc() {
+  const a = parseFloat(document.getElementById("num1").value);
+  const b = parseFloat(document.getElementById("num2").value);
+  const op = document.getElementById("op").value;
 
-  document.getElementById("statement").innerHTML = `
-    <p><strong>Borrower Name:</strong> ${data.borrower}</p>
-    <p><strong>Principal:</strong> ₹${data.principal}</p>
-    <p><strong>Interest Rate:</strong> ₹${data.rate} per 100 per month</p>
-    <p><strong>Period:</strong> ${data.months} months</p>
-    <p><strong>Interest Amount:</strong> ₹${data.interest}</p>
-    <hr />
-    <h2>Total Payable: ₹${data.total}</h2>
-  `;
-}
+  let result;
+  if (op === "+") result = a + b;
+  if (op === "-") result = a - b;
+  if (op === "*") result = a * b;
+  if (op === "/") result = b !== 0 ? a / b : "Error";
 
-function goBack() {
-  window.location.href = "index.html";
-}
-
-function clearForm() {
-  document.querySelectorAll("input").forEach(i => i.value = "");
-}
-
-if (window.location.pathname.includes("result.html")) {
-  loadStatement();
+  document.getElementById("basicResult").innerText = "Result : " + result;
 }
