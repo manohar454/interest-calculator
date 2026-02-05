@@ -77,3 +77,37 @@ button {
     background: white;
   }
 }
+.statement-card {
+  max-width: 600px;
+  margin: 30px auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.statement-card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.statement-card .row {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+  font-size: 15px;
+}
+
+.statement-card hr {
+  margin: 15px 0;
+}
+
+.statement-card .highlight {
+  font-weight: bold;
+}
+
+.statement-card .total {
+  font-size: 18px;
+  font-weight: bold;
+  color: #0d47a1;
+}
