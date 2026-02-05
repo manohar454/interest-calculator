@@ -17,13 +17,12 @@ function calculateInterest() {
   const total = principal + SI;
 
   document.getElementById("sBorrower").innerText = borrower;
-  document.getElementById("sPrincipal").innerText = "₹ " + principal.toFixed(2);
+  document.getElementById("sPrincipal").innerText = "₹ " + principal.toLocaleString("en-IN", { minimumFractionDigits: 2 });
   document.getElementById("sRate").innerText = rate + " per 100 per month";
   document.getElementById("sDays").innerText = days + " days";
   document.getElementById("sMonths").innerText = months.toFixed(2) + " months";
-  document.getElementById("sSI").innerText = "₹ " + SI.toFixed(2);
-  document.getElementById("sTotal").innerText = "₹ " + total.toFixed(2);
-
+  document.getElementById("sSI").innerText = "₹ " + SI.toLocaleString("en-IN", { minimumFractionDigits: 2 });
+ document.getElementById("sTotal").innerText = "₹ " + total.toLocaleString("en-IN", { minimumFractionDigits: 2 });
   const today = new Date();
   document.getElementById("calcDate").innerText =
     today.toLocaleDateString("en-GB");
