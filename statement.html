@@ -1,1 +1,29 @@
+<script>
+  document.getElementById("sBorrower").innerText =
+    localStorage.getItem("borrower");
+
+  document.getElementById("sPrincipal").innerText =
+    "₹ " + Number(localStorage.getItem("principal"))
+      .toLocaleString("en-IN", { minimumFractionDigits: 2 });
+
+  document.getElementById("sRate").innerText =
+    localStorage.getItem("rate") + " per 100 per month";
+
+  document.getElementById("sDays").innerText =
+    localStorage.getItem("days") + " days";
+
+  document.getElementById("sMonths").innerText =
+    localStorage.getItem("months") + " months";
+
+  document.getElementById("sSI").innerText =
+    "₹ " + Number(localStorage.getItem("si"))
+      .toLocaleString("en-IN", { minimumFractionDigits: 2 });
+
+  document.getElementById("sTotal").innerText =
+    "₹ " + Number(localStorage.getItem("total"))
+      .toLocaleString("en-IN", { minimumFractionDigits: 2 });
+
+  document.getElementById("calcDate").innerText =
+    localStorage.getItem("date");
+</script>
 
