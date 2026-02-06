@@ -105,3 +105,35 @@ footer {
   padding: 12px;
   font-size: 13px;
 }
+/* PRINT STYLES */
+@media print {
+
+  body {
+    background: white;
+  }
+
+  header,
+  footer,
+  button {
+    display: none !important;
+  }
+
+  .container {
+    margin: 0;
+    padding: 0;
+  }
+
+  .card {
+    box-shadow: none;
+    border: none;
+    margin: 0;
+  }
+
+  .statement {
+    font-size: 14px;
+  }
+
+  hr {
+    border: 1px solid #000;
+  }
+}
