@@ -1,113 +1,99 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f4f6f8;
-  margin: 0;
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
 }
 
-.app-header {
-  background: #0d47a1;
-  color: white;
-  text-align: center;
-  padding: 15px;
+body {
+  background: #f4f6f8;
+  margin: 0;
+  padding: 20px;
 }
 
 .container {
-  max-width: 600px;
+  max-width: 480px;
   margin: auto;
-  padding: 15px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 20px;
 }
 
 .card {
   background: white;
   padding: 20px;
+  border-radius: 12px;
   margin-bottom: 20px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
 
 label {
   display: block;
-  margin-top: 10px;
-  font-weight: bold;
+  margin-top: 12px;
+  font-weight: 600;
 }
 
-input, select, button {
+input {
   width: 100%;
   padding: 10px;
-  margin-top: 5px;
-}
-
-button {
-  background: #0d47a1;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  margin-top: 15px;
-}
-
-.statement {
-  max-width: 600px;
-  margin: auto;
-  background: white;
-  padding: 20px;
+  margin-top: 6px;
+  border-radius: 8px;
   border: 1px solid #ccc;
 }
 
-.statement h2 {
-  text-align: center;
+input:disabled {
+  background: #eee;
 }
 
-.row {
+.grid {
   display: flex;
-  justify-content: space-between;
-  margin: 8px 0;
+  gap: 10px;
 }
 
-.center {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* PRINT RULES */
-@media print {
-  .no-print {
-    display: none;
-  }
-  body {
-    background: white;
-  }
-}
-.statement-card {
-  max-width: 600px;
-  margin: 30px auto;
-  background: #ffffff;
-  padding: 25px;
+button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background: #0d6efd;
+  color: white;
+  font-size: 16px;
+  border: none;
   border-radius: 10px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  cursor: pointer;
 }
 
-.statement-card h2 {
-  text-align: center;
-  margin-bottom: 20px;
+button:hover {
+  background: #084298;
 }
 
-.statement-card .row {
-  display: flex;
-  justify-content: space-between;
-  margin: 8px 0;
-  font-size: 15px;
+.hidden {
+  display: none;
 }
 
-.statement-card hr {
+hr {
   margin: 15px 0;
 }
 
-.statement-card .highlight {
-  font-weight: bold;
+.total {
+  font-size: 18px;
+  color: #0d6efd;
 }
 
-.statement-card .total {
-  font-size: 18px;
-  font-weight: bold;
-  color: #0d47a1;
+.date {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Mobile friendly */
+@media (max-width: 500px) {
+  .grid {
+    flex-direction: column;
+  }
 }
