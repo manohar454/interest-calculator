@@ -1,99 +1,107 @@
 * {
   box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
 }
 
 body {
-  background: #f4f6f8;
   margin: 0;
+  background: #f4f6f9;
+  color: #333;
+}
+
+/* Header */
+header {
+  background: #0d47a1;
+  color: white;
   padding: 20px;
+  text-align: center;
 }
 
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+header p {
+  margin: 6px 0 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Card layout */
 .container {
-  max-width: 480px;
-  margin: auto;
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 5px;
-}
-
-.subtitle {
-  text-align: center;
-  color: #666;
-  margin-bottom: 20px;
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 15px;
 }
 
 .card {
   background: white;
-  padding: 20px;
-  border-radius: 12px;
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+  margin-top: 0;
   margin-bottom: 20px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  font-size: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+/* Form */
+.form-group {
+  margin-bottom: 15px;
 }
 
 label {
   display: block;
-  margin-top: 12px;
+  font-size: 14px;
+  margin-bottom: 6px;
   font-weight: 600;
 }
 
-input {
+input, select {
   width: 100%;
   padding: 10px;
-  margin-top: 6px;
-  border-radius: 8px;
+  font-size: 14px;
+  border-radius: 4px;
   border: 1px solid #ccc;
-}
-
-input:disabled {
-  background: #eee;
-}
-
-.grid {
-  display: flex;
-  gap: 10px;
 }
 
 button {
   width: 100%;
-  margin-top: 20px;
-  padding: 12px;
-  background: #0d6efd;
+  background: #0d47a1;
   color: white;
-  font-size: 16px;
+  padding: 12px;
   border: none;
-  border-radius: 10px;
+  border-radius: 4px;
+  font-size: 15px;
   cursor: pointer;
 }
 
 button:hover {
-  background: #084298;
+  background: #08306b;
 }
 
-.hidden {
-  display: none;
-}
-
-hr {
-  margin: 15px 0;
-}
-
-.total {
-  font-size: 18px;
-  color: #0d6efd;
-}
-
-.date {
-  margin-top: 10px;
+/* Statement */
+.statement {
+  line-height: 1.8;
   font-size: 14px;
-  color: #555;
 }
 
-/* Mobile friendly */
-@media (max-width: 500px) {
-  .grid {
-    flex-direction: column;
-  }
+.statement strong {
+  display: inline-block;
+  width: 160px;
+}
+
+/* Footer */
+footer {
+  background: #0d47a1;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  font-size: 13px;
 }
