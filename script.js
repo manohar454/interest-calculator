@@ -59,3 +59,6 @@ function calculateInterest() {
 
   document.getElementById("resultCard").classList.remove("hidden");
 }
+function printStatement() {
+  window.print();
+}
