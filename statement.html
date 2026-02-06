@@ -1,36 +1,37 @@
 <!DOCTYPE html>
-<html lang="en-IN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interest Statement</title>
   <link rel="stylesheet" href="statement.css">
 </head>
 <body>
 
-  <div class="statement">
-    <h1>INTEREST STATEMENT</h1>
-    <p class="subtitle">Promissory Note / Rural Loan Method</p>
+<div class="statement">
 
-    <div class="row"><span>Borrower Name</span><span id="borrower"></span></div>
-    <div class="row"><span>Lender Name</span><span id="lender"></span></div>
-    <div class="row"><span>Principal Amount</span><span id="principal"></span></div>
-    <div class="row"><span>Interest Rate</span><span id="rate"></span></div>
-    <div class="row"><span>Loan Period</span><span id="period"></span></div>
+  <h2>INTEREST STATEMENT</h2>
+  <hr>
 
-    <hr>
+  <p><strong>Lender Name :</strong> Manohar</p>
+  <p><strong>Borrower Name :</strong> <span id="sBorrower"></span></p>
+  <p><strong>Date :</strong> <span id="calcDate"></span></p>
 
-    <div class="row"><span>Simple Interest</span><span id="si"></span></div>
-    <div class="row total"><span>Total Amount</span><span id="total"></span></div>
+  <hr>
 
-    <hr>
+  <p><strong>Principal :</strong> ₹ <span id="sPrincipal"></span></p>
+  <p><strong>Interest Rate :</strong> <span id="sRate"></span></p>
+  <p><strong>Total Days :</strong> <span id="sDays"></span></p>
+  <p><strong>Time Period :</strong> <span id="sMonths"></span></p>
 
-    <div class="footer">
-      <span>Calculated on: <span id="date"></span></span>
-      <button onclick="window.print()">Print</button>
-    </div>
-  </div>
+  <hr>
 
-  <script src="statement.js"></script>
+  <p><strong>Simple Interest :</strong> ₹ <span id="sSI"></span></p>
+  <p class="total"><strong>Total Amount :</strong> ₹ <span id="sTotal"></span></p>
+
+  <button onclick="printStatement()">Print / Save Statement</button>
+
+</div>
+
+<script src="statement.js"></script>
 </body>
 </html>
