@@ -1,29 +1,36 @@
-<script>
-  document.getElementById("sBorrower").innerText =
-    localStorage.getItem("borrower");
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interest Statement</title>
+  <link rel="stylesheet" href="statement.css">
+</head>
+<body>
 
-  document.getElementById("sPrincipal").innerText =
-    "₹ " + Number(localStorage.getItem("principal"))
-      .toLocaleString("en-IN", { minimumFractionDigits: 2 });
+  <div class="statement">
+    <h1>INTEREST STATEMENT</h1>
+    <p class="subtitle">Promissory Note / Rural Loan Method</p>
 
-  document.getElementById("sRate").innerText =
-    localStorage.getItem("rate") + " per 100 per month";
+    <div class="row"><span>Borrower Name</span><span id="borrower"></span></div>
+    <div class="row"><span>Lender Name</span><span id="lender"></span></div>
+    <div class="row"><span>Principal Amount</span><span id="principal"></span></div>
+    <div class="row"><span>Interest Rate</span><span id="rate"></span></div>
+    <div class="row"><span>Loan Period</span><span id="period"></span></div>
 
-  document.getElementById("sDays").innerText =
-    localStorage.getItem("days") + " days";
+    <hr>
 
-  document.getElementById("sMonths").innerText =
-    localStorage.getItem("months") + " months";
+    <div class="row"><span>Simple Interest</span><span id="si"></span></div>
+    <div class="row total"><span>Total Amount</span><span id="total"></span></div>
 
-  document.getElementById("sSI").innerText =
-    "₹ " + Number(localStorage.getItem("si"))
-      .toLocaleString("en-IN", { minimumFractionDigits: 2 });
+    <hr>
 
-  document.getElementById("sTotal").innerText =
-    "₹ " + Number(localStorage.getItem("total"))
-      .toLocaleString("en-IN", { minimumFractionDigits: 2 });
+    <div class="footer">
+      <span>Calculated on: <span id="date"></span></span>
+      <button onclick="window.print()">Print</button>
+    </div>
+  </div>
 
-  document.getElementById("calcDate").innerText =
-    localStorage.getItem("date");
-</script>
-
+  <script src="statement.js"></script>
+</body>
+</html>
