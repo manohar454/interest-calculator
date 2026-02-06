@@ -20,6 +20,28 @@ function calculateInterest() {
   const SI = (principal * rate * months) / 100;
   const total = principal + SI;
 
+  const data = {
+    borrower,
+    lender: "Manohar",
+    principal,
+    rate,
+    days,
+    months: months.toFixed(2),
+    SI,
+    total,
+    calcDate: new Date().toLocaleDateString("en-IN")
+  };
+
+  localStorage.setItem("interestStatement", JSON.stringify(data));
+
+  window.location.href = "statement.html";
+}
+
+
+  const months = days / 30;
+  const SI = (principal * rate * months) / 100;
+  const total = principal + SI;
+
   document.getElementById("sBorrower").innerText = borrower;
   document.getElementById("sPrincipal").innerText =
     "₹ " + principal.toLocaleString("en-IN", { minimumFractionDigits: 2 });
