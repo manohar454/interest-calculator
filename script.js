@@ -11,34 +11,29 @@ function calculateInterest() {
   }
 
   const days = Math.floor((end - start) / (1000 * 60 * 60 * 24));
-  const months = days / 30;
+  if (days <= 0) {
+    alert("End date must be after start date");
+    return;
+  }
 
+  const months = days / 30;
   const SI = (principal * rate * months) / 100;
   const total = principal + SI;
 
-  // Save data for statement page
-  localStorage.setItem("borrower", borrower);
-  localStorage.setItem("principal", principal);
-  localStorage.setItem("rate", rate);
-  localStorage.setItem("days", days);
-  localStorage.setItem("months", months.toFixed(2));
-  localStorage.setItem("si", SI.toFixed(2));
-  localStorage.setItem("total", total.toFixed(2));
-  localStorage.setItem("date", new Date().toLocaleDateString("en-GB"));
+  document.getElementById("sBorrower").innerText = borrower;
+  document.getElementById("sPrincipal").innerText =
+    "₹ " + principal.toLocaleString("en-IN", { minimumFractionDigits: 2 });
+  document.getElementById("sRate").innerText =
+    rate + " per ₹100 per month";
+  document.getElementById("sDays").innerText = days + " days";
+  document.getElementById("sMonths").innerText = months.toFixed(2) + " months";
+  document.getElementById("sSI").innerText =
+    "₹ " + SI.toLocaleString("en-IN", { minimumFractionDigits: 2 });
+  document.getElementById("sTotal").innerText =
+    "₹ " + total.toLocaleString("en-IN", { minimumFractionDigits: 2 });
 
-  window.location.href = "statement.html";
-}
+  document.getElementById("calcDate").innerText =
+    new Date().toLocaleDateString("en-IN");
 
-function basicCalc() {
-  const a = parseFloat(document.getElementById("num1").value);
-  const b = parseFloat(document.getElementById("num2").value);
-  const op = document.getElementById("op").value;
-
-  let result;
-  if (op === "+") result = a + b;
-  if (op === "-") result = a - b;
-  if (op === "*") result = a * b;
-  if (op === "/") result = b !== 0 ? a / b : "Error";
-
-  document.getElementById("basicResult").innerText = "Result : " + result;
+  document.getElementById("resultCard").classList.remove("hidden");
 }
